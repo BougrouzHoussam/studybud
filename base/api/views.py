@@ -1,4 +1,3 @@
-from pickle import TRUE
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from base.models import Room
@@ -13,7 +12,7 @@ def getrouts(request):
 @api_view(['GET'])
 def getrooms(request):
     rooms = Room.objects.all()
-    ser = Roomserializer(rooms , many = TRUE)
+    ser = Roomserializer(rooms , many=True)
     return Response(ser.data)
 
 
