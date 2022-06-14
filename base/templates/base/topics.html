@@ -13,7 +13,7 @@
                   ></path>
                 </svg>
               </a>
-              <h3>Browse Topics</h3>
+              <h3>Browse categorys</h3>
             </div>
           </div>
 
@@ -37,7 +37,7 @@
               </li>
               {% for t in topics %}              
               <li>
-                <a href=" {% url 'home' %}?q={{t.name}}  ">{{t.name}} <span>{{t.room_set.all.count}}</span></a>
+                <a href=" {% url 'home' %}?q={{t.name}}  ">{{t.name}} <span>{{t.offer_set.all.count}}</span></a>
               </li>
               {% endfor  %}
             </ul>

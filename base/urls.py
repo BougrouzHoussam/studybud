@@ -1,6 +1,7 @@
 from unicodedata import name
 from django.urls import path
-from . import views
+from . import views 
+from . import views as map_views
 
 urlpatterns = [
     path('login_page/',views.loginregister, name='login'),
@@ -18,7 +19,7 @@ urlpatterns = [
     #!the name is optional but it have some benffets
     path('room/<str:pk>/',views.room ,name = 'room'),
     path('profile/<str:pk>/',views.profileinfo , name = 'profile'),
-    path('create-room/' , views.createroom , name='create-room'),
+    path('create-room/' , map_views.createroom , name='create-room'),
     path('edit-room/<str:pk>/' , views.updateroom , name='update-room'),
     path('edit-mess/<str:pk>/' , views.editmessage , name='edit-message'),
     path('delete-room/<str:pk>/' , views.deleteroom ,name = 'delete-room'),

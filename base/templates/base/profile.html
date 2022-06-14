@@ -15,29 +15,38 @@
         <div class="profile">
           <div class="profile__avatar">
             <div class="avatar avatar--large active">
-              <img src="https://randomuser.me/api/portraits/men/11.jpg" />
+              <img src="{{user.avater.url}}" />
             </div>
           </div>
           <div class="profile__info">
             <h3>{{user.username}}</h3>
-            <p>@{{user.username}}</p>
+            <p>{{user.email}}</p>
             {%if request.user == user %}
             <a href="{%url 'edituser' %}" class="btn btn--main btn--pill">Edit Profile</a>
             {%endif%}
           </div>
           <div class="profile__about">
             <h3>About</h3>
+            
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo tenetur
-              facilis sunt nemo debitis quisquam hic atque aut? Ducimus alias placeat optio
-              accusamus repudiandae quis ab ex exercitationem rem?
+              {{user.bio}}
             </p>
+            <h3>
+              Phone number 
+            </h3>
+            <p>
+              {{user.phone_number}}
+            </p>
+            <h3>
+              this user is an {{user.type}}
+            </h3>
           </div> 
+          
         </div>
 
         <div class="roomList__header">
           <div>
-            <h2>Study Rooms Hosted by dennis_ivy</a>
+            <h2>all post by {{user.name}}</a>
             </h2>
           </div>
         </div>
@@ -46,7 +55,7 @@
           <div class="roomListRoom__header">
             <a href="{% url 'profile' user.id %}" class="roomListRoom__author">
               <div class="avatar avatar--small active">
-                <img src="https://randomuser.me/api/portraits/men/11.jpg" />
+                <img src="{{room.host.avater.url}}" />
               </div>
               <span>@{{user.username}}</span>
             </a>
@@ -57,6 +66,9 @@
           </div>
           <div class="roomListRoom__content">
             <a href="{% url 'room' room.id %}">{{room.name}}</a>
+            
+        <img src = "{% url 'home' %}{{room.mainpic}}" alt="an error while uplode the picture" />
+        
             <p>
               {{room.descripation}}
             </p>

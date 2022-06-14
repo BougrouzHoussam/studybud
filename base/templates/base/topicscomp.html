@@ -2,7 +2,7 @@
 <div class="topics">
   <a href="{% url 'topic' %} ">
     <div class="topics__header">
-      <h2>Browse Topics</h2>
+      <h2>Browse categorys</h2>
     </div>
   </a>
     <ul class="topics__list">
@@ -13,7 +13,7 @@
       <!-- here we have put q = to somthing so we can
         use it in views to search using filter method -->
       <li>
-        <a href="{%url 'home'%}?q={{topic.name}}">{{topic.name}} <span>{{topic.room_set.all.count}}</span></a>
+        <a href="{%url 'home'%}?q={{topic.name}}">{{topic.name}} <span>{{topic.offer_set.all.count}}</span></a>
       </li>
       {% endfor %} 
     </ul>

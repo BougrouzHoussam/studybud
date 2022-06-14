@@ -1,11 +1,16 @@
-from pyexpat import model
 from django.forms import ModelForm
-from .models import Room , Message
-from django.contrib.auth.models import User
+from .models import Offer , Message , User
+from django.contrib.auth.forms import UserCreationForm
+
+class MyUserCreationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username' , 'email' , 'password1','password2','type','phone_number']
+
 
 class Roomform(ModelForm):
     class Meta:
-        model = Room
+        model = Offer
         fields ='__all__'
         exclude = ['host' ,'participants']
 
@@ -17,4 +22,4 @@ class Messageform(ModelForm):
 class Userform(ModelForm):
     class Meta:
         model = User
-        fields = ['username','email']
+        fields = ['avater','username','email','bio']

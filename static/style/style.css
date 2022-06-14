@@ -199,8 +199,8 @@ a {
 }
 
 .scroll::-webkit-scrollbar {
+  background-color: var(--color-gray);
   width: 0.6rem;
-  background-color: rgb(41, 41, 46);
 }
 
 .scroll::-webkit-scrollbar-thumb {
@@ -285,6 +285,7 @@ a {
 .header__logo > img {
   height: 3.2rem;
   width: 3.2rem;
+  
 }
 
 .header__logo > h1 {
@@ -461,6 +462,7 @@ a {
 
 .layout__body {
   margin: 3rem;
+  margin-top: 12rem;
 }
 
 @media screen and (max-width: 900px) {
@@ -681,6 +683,14 @@ a {
 
 .roomListRoom__content {
   margin: 1rem 0;
+  
+}
+.change{
+  display: flex;
+  /* display: grid;
+  grid-template-columns:  1fr 1fr 1fr; */
+  gap: 10px;
+  overflow-x: auto;
 }
 
 .roomListRoom__content a {
@@ -965,7 +975,7 @@ a {
 
 .room__header {
   max-height: 30vh;
-  overflow-y: auto;
+  overflow-y: hidden;
   position: absolute;
   width: 95%;
   background: var(--color-dark);
@@ -986,7 +996,7 @@ a {
   padding-left: 2rem;
   padding-right: 2rem;
   height: 80.5vh;
-  /* overflow-y: auto; */
+  overflow-y: auto;
   padding-bottom: 0;
 }
 
@@ -1044,7 +1054,9 @@ a {
 .room__conversation {
   margin-top: 1rem;
   margin-bottom: 4rem;
-  height: 64%;
+  height: 82%;
+  background-color: transparent;
+  overflow: hidden;
 }
 
 .threads h3 {
@@ -1054,15 +1066,13 @@ a {
 }
 
 .threads {
-  background: var(--color-bg);
   border-radius: 0.7rem;
-  overflow-y: auto;
   height: 100%;
   margin-top: 28vh;
-  padding: 0 2rem 4rem 2rem;
 }
 
 .thread {
+  
   border-left: 2px solid var(--color-dark);
   padding-left: 1rem;
   margin: 2rem 0;
@@ -1072,7 +1082,6 @@ a {
 .thread__top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .thread__top svg {
@@ -1093,8 +1102,12 @@ a {
 }
 
 .thread__details {
+  width: 200px;
+  word-break: break-all;
+  font-weight: bold;
   font-size: 1.4rem;
-  margin-top: 0.5rem;
+  margin-top: 0.7rem;
+  padding-left: 1rem;
 }
 
 .room__message {
@@ -1162,4 +1175,28 @@ a {
   font-weight: 500;
   color: var(--color-main);
   font-weight: 1.4rem;
+}
+
+.images-container{
+  display: flex;
+  /* display: grid;
+  grid-template-columns:  1fr 1fr 1fr; */
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.room-image{
+  object-fit: cover;
+}
+
+.conteiner-comment{
+  background: var(--color-dark-light);
+  border-radius: 0.7rem;
+  overflow-y: auto;
+  height: 80%;
+  padding: 0 0rem 0rem 0rem;
+}
+.theconv{
+  padding-left: 1rem;
+  padding-top: 0.5rem;
 }

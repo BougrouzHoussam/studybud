@@ -1,6 +1,6 @@
 {% extends 'main.html'%}
 {% block content %}
-
+ {% if request.user.type == "Agency" %}
 <main class="create-room layout">
     <div class="container">
       <div class="layout__box">
@@ -17,13 +17,12 @@
             <h3>Create/update Study Room</h3>
           </div>
         </div>
-        <div class="layout__body">
-          <form class="form" action="" method="post">
+        <div class="layout__body" >
+          <form class="form" action="" method="post" enctype="multipart/form-data">
             {%  csrf_token  %}
             
             <div class="form__group">
-              <label for="room_name">Room Topic</label>
-              
+              <label for="room_name">Category</label>
               <input required type="text" value="{{room.topic.name}}" name="topic" placeholder="topic" list="topic-list" />
               <datalist id="topic-list">
               <select  id="room_topic">
@@ -37,36 +36,26 @@
             </div>
 
             <div class="form__group">
-              <label for="room_name">Room Name</label>
+              <label for="room_name">picture</label>
+              <input type="file" name="picture" placeholder="picture" multiple />
+              </div>
+            <div class="form__group">
+              <label for="room_name">Offer Name</label>
               {{form.name}}
               </div>
 
+              <div class="form__group">
+                <label for="room_name">Offer price</label>
+                <p>{{form.price}} M DA</p>
+                </div>
             <div class="form__group">
-              <label for="room_name">Room Description</label>
+              <label for="room_name">Offer Description</label>
               {{form.descripation}}
               </div>
-
-
-
-            <!-- <div class="form__group">
-              <label for="room_topic">Topic</label>
-              <input required type="text" name="topic" id="room_topic" list="topic-list" />
-              <datalist id="topic-list">
-                <select id="room_topic">
-                  <option value="">Select your topic</option>
-                  <option value="Python">Python</option>
-                  <option value="Django">Django</option>
-                </select>
-              </datalist>
-
+              <div >
+              {{m| safe}}
             </div>
-
-
-            <div class="form__group">
-              <label for="room_about">About</label>
-              <textarea name="room_about" id="room_about" placeholder="Write about your study group..."></textarea>
-            </div> -->
-            <div class="form__action">
+              <div class="form__action">
               <a class="btn btn--dark" href="{% url 'home' %}">Cancel</a>
               <button class="btn btn--main" type="submit">Submit</button>
             </div>
@@ -75,4 +64,8 @@
       </div>
     </div>
   </main>
+{% else%}
+<script> alert ("you are not allow here"); </script>
+{%endif%}
+
 {% endblock content %}
